@@ -1,0 +1,26 @@
+spring:
+  profiles: docker
+  application:
+    name: discovery-service
+server:
+  port:8061
+     
+
+
+
+
+
+eureka:
+  instance:
+    hostname: discovery-service
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 90
+    lease-renewal-interval-in-seconds: 90
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    serviceUrl:
+      defaultZone: http://discovery-service:8061/eureka/
+  server:
+    enable-self-preservation: false
+  

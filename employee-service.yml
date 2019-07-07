@@ -1,0 +1,25 @@
+spring:
+  profiles: docker
+  application:
+    name: employee-service
+
+
+server:
+  port: 8090
+
+eureka:
+  instance:
+    hostname: employee-service
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://discovery-service:8061/eureka/
+  server:
+    enable-self-preservation: false
+  
+      
+logging:
+  pattern: 
+    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"

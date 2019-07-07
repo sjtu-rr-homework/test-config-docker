@@ -1,0 +1,33 @@
+spring:
+  profiles: docker
+  application:
+    name: department-service
+
+server:
+  port: 8091
+
+eureka:
+  instance:
+    hostname: department-service
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://discovery-service:8061/eureka/
+  server:
+    enable-self-preservation: false
+
+    
+      
+logging:
+  pattern: 
+    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+
+feign:
+  client:
+    config:
+      default:
+        connect-timeout: 999999
+        read-timeout: 999999
+feign.hystrix.enabled: true
