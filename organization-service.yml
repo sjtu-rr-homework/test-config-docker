@@ -12,10 +12,11 @@ eureka:
       defaultZone: http://discovery-service:8061/eureka/
   server:
     enable-self-preservation: false
-feign:	
-  client:	
+
+feign:
+  client:
     config:	
-      default:	
-        connect-timeout: 999999	
-        read-timeout: 999999	
+      default:
+        connect-timeout: 999999
+        read-timeout: 999999
 
