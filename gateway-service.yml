@@ -14,6 +14,8 @@ eureka:
     enable-self-preservation: false
     
 spring:
+  application:
+    name: gateway-service
   cloud:
     gateway:
       discovery:
@@ -21,20 +23,33 @@ spring:
           enabled: true
       routes:
       - id: employee-service
-        uri: lb://employee-service
+        uri: http://employee-service:8090
         predicates:
         - Path=/employee/**
         filters:
         - RewritePath=/employee/(?<path>.*), /$\{path}
+        - name: Hystrix
+          args:
+            name: default
+            fallbackUri: forward:/hystrixfallback
       - id: department-service
-        uri: lb://department-service
+        uri: http://department-service:8091
         predicates:
         - Path=/department/**
         filters:
         - RewritePath=/department/(?<path>.*), /$\{path}
+        - name: Hystrix
+          args:
+            name: default
+            fallbackUri: forward:/hystrixfallback
       - id: organization-service
-        uri: lb://organization-service
+        uri: http://organization-service:8092
         predicates:
         - Path=/organization/**
         filters:
         - RewritePath=/organization/(?<path>.*), /$\{path}
+        - name: Hystrix
+          args:
+            name: default
+            fallbackUri: forward:/hystrixfallback
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 20000
