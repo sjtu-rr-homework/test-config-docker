@@ -1,8 +1,6 @@
 spring:
   profiles: docker
-  application:
-    name: department-service
-
+  
 server:
   port: 8091
 
