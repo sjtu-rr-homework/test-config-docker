@@ -18,4 +18,3 @@ feign:
       default:	
         connect-timeout: 999999	
         read-timeout: 999999	
-feign.hystrix.enabled: true
