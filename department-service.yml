@@ -1,9 +1,5 @@
-spring:
-  profiles: docker
-  
 server:
   port: 8091
-
 eureka:
   instance:
     hostname: department-service
