@@ -12,6 +12,3 @@ eureka:
       defaultZone: http://discovery-service:8061/eureka/
   server:
     enable-self-preservation: false
-
-spring:
-  profiles: docker
