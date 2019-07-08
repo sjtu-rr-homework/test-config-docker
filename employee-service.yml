@@ -13,9 +13,9 @@ eureka:
   server:
     enable-self-preservation: false
     
-feign:	
-  client:	
-    config:	
-      default:	
-        connect-timeout: 999999	
-        read-timeout: 999999	
+feign:
+  client:
+    config:
+      default:
+        connect-timeout: 999999
+        read-timeout: 999999
