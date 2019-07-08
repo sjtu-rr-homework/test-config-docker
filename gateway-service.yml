@@ -28,15 +28,28 @@ spring:
         - Path=/employee/**
         filters:
         - RewritePath=/employee/(?<path>.*), /$\{path}
+        - name: Hystrix
+          args:
+            name: default
+            fallbackUri: forward:/hystrixfallback
       - id: department-service
         uri: http://department-service:8091
         predicates:
         - Path=/department/**
         filters:
         - RewritePath=/department/(?<path>.*), /$\{path}
+        - name: Hystrix
+          args:
+            name: default
+            fallbackUri: forward:/hystrixfallback
       - id: organization-service
         uri: http://organization-service:8092
         predicates:
         - Path=/organization/**
         filters:
         - RewritePath=/organization/(?<path>.*), /$\{path}
+        - name: Hystrix
+          args:
+            name: default
+            fallbackUri: forward:/hystrixfallback
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 20000
