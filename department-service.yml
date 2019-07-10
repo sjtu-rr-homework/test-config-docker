@@ -11,5 +11,7 @@ eureka:
       defaultZone: http://discovery-service:8061/eureka/
     
 feign.hystrix.enabled: true
+feign.client.config.default.connectTimeout: 160000000
+feign.client.config.default.readTimeout: 160000000
 
 
