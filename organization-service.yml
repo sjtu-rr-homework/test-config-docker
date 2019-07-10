@@ -13,10 +13,5 @@ eureka:
   server:
     enable-self-preservation: false
     
-feign:
-  client:
-    config:
-      default:
-        connect-timeout: 20000
-        read-timeout: 20000
+feign.hystrix.enabled: true
 
